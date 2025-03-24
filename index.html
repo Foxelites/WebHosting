@@ -4,8 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="Styles.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    Hello World!
+    <nav class="navbar">
+        <div class="logo"> <a href="#top"><img src="Images/logo.png" alt="Logo"></a> </div>
+        <div class="nav-links">
+            <a href="#packages">Plans</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    <div class="hero">
+        <h1>Super Fast Web Hosting</h1>
+        <p>The best web hosting for your website, fast and reliable.</p>
+        <a href="#packages"><button>Order Now</button></a>
+    </div>
+    <section id="packages" class="plans">
+        <h2>Our Packages</h2>
+        <div class="plan-container">
+            <div class="plan">
+                <img src="Images/Icon1.png" alt="Bronze Package Image" class="plan-image">
+                <h2>Bronze</h2>
+                <ul>
+                    <li>1 Website</li>
+                    <li>10GB SSD</li>
+                    <li>Free SSL</li>
+                    <li>24/7 Support</li>
+                    <li>Daily Backups</li>
+                </ul>
+                <button>Buy Now</button>
+            </div>
+            <div class="plan">
+                <img src="Images/Icon2.png" alt="Silver Package Image" class="plan-image">
+                <h2>Silver</h2>
+                <ul>
+                    <li>5 Websites</li>
+                    <li>50GB SSD</li>
+                    <li>Free SSL & Backup</li>
+                    <li>24/7 Support</li>
+                    <li>Daily Backups</li>
+                    <li>Free Domain for 1 Year</li>
+                </ul>
+                <button>Buy Now</button>
+            </div>
+            <div class="plan">
+                <img src="Images/Icon3.png" alt="Gold Package Image" class="plan-image">
+                <h2>Gold</h2>
+                <ul>
+                    <li>Unlimited Websites</li>
+                    <li>200GB SSD</li>
+                    <li>Priority Support</li>
+                    <li>24/7 Support</li>
+                    <li>Daily Backups</li>
+                    <li>Free Domain for 1 Year</li>
+                    <li>Advanced Security Features</li>
+                </ul>
+                <button>Buy Now</button>
+            </div>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <div class="about-container">
+            <div class="about-item">
+                <div class="about-content">
+                    <h3>24/7 Service</h3>
+                    <p>Our dedicated support team is available around the clock to assist you with any questions or issues you may have. We pride ourselves on providing quick and efficient solutions to ensure your website runs smoothly at all times.</p>
+                </div>
+                <div class="about-image">
+                    <img src="Images/Icon4.png" alt="24/7 Service">
+                </div>
+            </div>
+            <div class="about-item reverse">
+                <div class="about-image">
+                    <img src="Images/Icon5.png" alt="Customer Service Speed">
+                </div>
+                <div class="about-content">
+                    <h3>Customer Service Speed</h3>
+                    <p>We understand that time is crucial in the digital world. Our optimized infrastructure and expert team ensure lightning-fast response times and quick resolution of any issues that may arise.</p>
+                </div>
+            </div>
+            <div class="about-item">
+                <div class="about-content">
+                    <h3>Experienced Developers</h3>
+                    <p>Our team of experienced developers brings years of expertise to every project. We stay up-to-date with the latest technologies and best practices to deliver cutting-edge solutions for your website needs.</p>
+                </div>
+                <div class="about-image">
+                    <img src="Images/Icon6.png" alt="Experienced Developers">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>Have questions about our hosting packages? We're here to help!</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>support@webhosting.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <p>24/7 Support Available</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="">Select Package</option>
+                        <option value="bronze">Bronze Package</option>
+                        <option value="silver">Silver Package</option>
+                        <option value="gold">Gold Package</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    <script src="script.js"></script>
 </body>
 </html>
