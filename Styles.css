@@ -21,7 +21,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #FFFFFF;
     padding: 0px 2px;
     width: 100%;
     color: black;
@@ -30,13 +29,13 @@ body {
     top: 0;
     left: 0;
     z-index: 1000;
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1), background-color 1s ease;
     height: 90px;
+    background-color: #FFFFFF;
 }
 
 .navbar.scrolled {
     padding: 0;
-    background-color: rgba(255, 255, 255, 0.98);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     height: 50px;
 }
@@ -141,16 +140,17 @@ body {
 }
 .plan {
     background: url('Images/BronzeMaterial.png') no-repeat center center/cover;
-    padding: 20px;
+    padding: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 250px;
+    width: 280px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 400px;
+    min-height: 450px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
 }
 .plan:hover {
     transform: scale(1.05);
@@ -162,13 +162,14 @@ body {
 .plan:nth-child(3) {
     background: url('Images/GoldMaterial.png') no-repeat center center/cover;
 }
-.plan h2 {
-    margin-bottom: 5px;
+.plan h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
 }
 .plan p {
-    margin-bottom: 15px;
-    text-align: left;
-    display: block;
+    font-size: 15px;
+    margin-bottom: 18px;
+    text-align: center;
 }
 .plan button {
     margin-top: auto;
@@ -186,12 +187,27 @@ body {
     background-color: #45a049;
 }
 .plan-image {
-    width: 80%;
-    height: auto;
-    background-color: transparent;
-    border-radius: 10px 10px 0 0;
-    padding: 10px;
-    margin-bottom: 5px;
+    width: 100%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    position: relative;
+}
+.plan-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+.price-tag {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+    text-align: center;
 }
 .plan ul {
     list-style-type: none;
@@ -199,8 +215,10 @@ body {
     margin-top: 0;
     width: 100%;
     text-align: center;
+    font-size: 15px;
 }
 .plan ul li {
+    margin-bottom: 8px;
     color: #333333;
 }
 .plan ul li::before {
@@ -279,10 +297,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 80px;
-    gap: 40px;
+    margin-bottom: 25px;
+    gap: 30px;
     background: url('Images/SilverMaterial.png') no-repeat center center/cover;
-    padding: 40px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 1000px;
@@ -296,7 +314,6 @@ body {
 
 .about-content {
     flex: 1;
-    text-align: left;
 }
 
 .about-content h3 {
@@ -313,16 +330,17 @@ body {
 
 .about-image {
     flex: 1;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     max-width: 200px;
-    margin: 0 auto;
 }
 
 .about-image img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 150px;
+    object-fit: contain;
 }
 
 .about-item:last-child {
@@ -338,6 +356,7 @@ body {
     text-align: center;
     color: #333;
     margin-bottom: 50px;
+    font-size: 40px;
 }
 
 .contact-container {
@@ -360,11 +379,14 @@ body {
 .contact-info h3 {
     color: #333;
     margin-bottom: 20px;
+    font-size: 24px;
 }
 
 .contact-info p {
     color: #666;
     margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 .contact-details {
@@ -387,6 +409,7 @@ body {
 .contact-item p {
     margin: 0;
     color: #666;
+    font-size: 16px;
 }
 
 .contact-form {
@@ -449,4 +472,58 @@ body {
     .contact-form {
         width: 100%;
     }
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    left: -10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.scroll-arrow {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+.scroll-arrow.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-arrow:hover {
+    transform: scale(1.1);
+    background-color: #ffffff;
+}
+
+.scroll-arrow img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+    transform: rotate(90deg);
+}
+
+.scroll-arrow:hover img {
+    transform: rotate(90deg) translateY(5px);
 } 

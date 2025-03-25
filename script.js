@@ -21,4 +21,32 @@ document.querySelector('.logo a').addEventListener('click', function(e) {
         top: 0,
         behavior: 'smooth'
     });
+});
+
+// Scroll arrow functionality
+const scrollArrow = document.getElementById('scrollArrow');
+const sections = ['hero', 'packages', 'about', 'contact'];
+let currentSectionIndex = 0;
+
+// Show arrow when reaching packages section
+window.addEventListener('scroll', function() {
+    const packagesSection = document.getElementById('packages');
+    if (packagesSection) {
+        const packagesTop = packagesSection.getBoundingClientRect().top;
+        if (packagesTop <= window.innerHeight / 2) {
+            scrollArrow.classList.add('visible');
+        } else {
+            scrollArrow.classList.remove('visible');
+        }
+    }
+});
+
+// Handle arrow click
+scrollArrow.addEventListener('click', function() {
+    currentSectionIndex = (currentSectionIndex + 1) % sections.length;
+    const nextSection = document.getElementById(sections[currentSectionIndex]);
+    
+    if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
 }); 
