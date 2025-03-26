@@ -23,32 +23,38 @@ document.querySelector('.logo a').addEventListener('click', function(e) {
     });
 });
 
-// Scroll arrow functionality
-const scrollArrow = document.getElementById('scrollArrow');
-const sections = ['hero', 'packages', 'about', 'contact'];
-let currentSectionIndex = 0;
+// Handle Learn More button click
+document.querySelector('.hero button').addEventListener('click', function(e) {
+    e.preventDefault();
+    const packagesOffset = packagesSection.offsetTop - 80;
+    window.scrollTo({
+        top: packagesOffset,
+        behavior: 'smooth'
+    });
+});
 
-// Show arrow when reaching packages section
-window.addEventListener('scroll', function() {
-    const packagesSection = document.getElementById('packages');
-    if (packagesSection) {
-        const packagesTop = packagesSection.getBoundingClientRect().top;
-        if (packagesTop <= window.innerHeight / 2) {
-            scrollArrow.classList.add('visible');
-        } else {
-            scrollArrow.classList.remove('visible');
-        }
+// Scroll arrow functionality
+const scrollArrow = document.querySelector('.scroll-arrow');
+const packagesSection = document.querySelector('.plans');
+const packagesTitle = document.querySelector('.plans h2');
+
+// Show scroll arrow when reaching packages section
+window.addEventListener('scroll', () => {
+    const packagesPosition = packagesSection.getBoundingClientRect().top;
+    if (packagesPosition <= window.innerHeight / 2) {
+        scrollArrow.classList.add('visible');
+    } else {
+        scrollArrow.classList.remove('visible');
     }
 });
 
-// Handle arrow click
-scrollArrow.addEventListener('click', function() {
-    currentSectionIndex = (currentSectionIndex + 1) % sections.length;
-    const nextSection = document.getElementById(sections[currentSectionIndex]);
-    
-    if (nextSection) {
-        nextSection.scrollIntoView({ behavior: 'smooth' });
-    }
+// Scroll to packages section when clicking arrow
+scrollArrow.addEventListener('click', () => {
+    const packagesOffset = packagesSection.offsetTop - 80; // Reduced offset to show title less far down
+    window.scrollTo({
+        top: packagesOffset,
+        behavior: 'smooth'
+    });
 });
 
 // 3D hover effect for about items
