@@ -238,6 +238,7 @@ body {
     justify-content: center;
     gap: 5px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 15px;
 }
 .plan ul li::before {
     content: "✓";
@@ -1184,5 +1185,72 @@ body {
     .disco-mode .contact-info,
     .disco-mode .contact-form {
         animation: none;
+    }
+}
+
+/* Responsive text sizes for larger screens */
+@media (min-width: 1400px) {
+    .plan ul li {
+        font-size: 18px;
+    }
+    .plan ul li::before {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .plan ul li {
+        font-size: 20px;
+    }
+    .plan ul li::before {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .plan ul li {
+        font-size: 22px;
+    }
+    .plan ul li::before {
+        font-size: 20px;
+    }
+}
+
+.party-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.party-mode-toggle label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+}
+
+.party-mode-toggle input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* Responsive styles for party mode toggle */
+@media (max-width: 576px) {
+    .party-mode-toggle {
+        bottom: 10px;
+        left: 10px;
+        padding: 8px 15px;
+    }
+    
+    .party-mode-toggle label {
+        font-size: 14px;
     }
 } 

@@ -144,9 +144,31 @@ function stopDiscoMode() {
     document.querySelectorAll('.firework').forEach(firework => firework.remove());
 }
 
-// Add click event listeners to all purchase buttons
+// Party Mode Toggle
+const partyModeCheckbox = document.getElementById('partyModeCheckbox');
+let isPartyModeActive = false;
+
+// Initialize party mode checkbox as unchecked
+partyModeCheckbox.checked = false;
+
+// Update party mode state when checkbox changes
+partyModeCheckbox.addEventListener('change', function() {
+    isPartyModeActive = this.checked;
+});
+
+// Update purchase button click handlers
 document.querySelectorAll('.plan button').forEach(button => {
-    button.addEventListener('click', startDiscoMode);
+    button.addEventListener('click', function() {
+        if (isPartyModeActive) {
+            // Party mode is active, proceed with party mode effects
+            document.body.classList.add('disco-mode');
+            createFireworks();
+            playMusic();
+        } else {
+            // Party mode is inactive, redirect to aankoop.html
+            window.location.href = 'aankoop.html';
+        }
+    });
 });
 
 // Add click event listener to close button
