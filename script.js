@@ -26,11 +26,19 @@ document.querySelector('.logo a').addEventListener('click', function(e) {
 // Handle Learn More button click
 document.querySelector('.hero button').addEventListener('click', function(e) {
     e.preventDefault();
-    const packagesOffset = packagesSection.offsetTop - 80;
-    window.scrollTo({
-        top: packagesOffset,
-        behavior: 'smooth'
-    });
+    const plansSection = document.querySelector('.plans');
+    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+    const plansTitle = plansSection.querySelector('h2');
+    
+    if (plansTitle) {
+        const plansPosition = plansTitle.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = plansPosition - navbarHeight - 10; // Reduced padding to 10px
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
 });
 
 // Scroll arrow functionality
@@ -172,4 +180,82 @@ document.querySelectorAll('.plan button').forEach(button => {
 });
 
 // Add click event listener to close button
-closeDisco.addEventListener('click', stopDiscoMode); 
+closeDisco.addEventListener('click', stopDiscoMode);
+
+// Update scroll functionality
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    const navbar = document.querySelector('.navbar');
+    const navbarHeight = navbar.offsetHeight;
+    const sectionTitle = section.querySelector('h2');
+    
+    if (sectionTitle) {
+        const sectionPosition = sectionTitle.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = sectionPosition - navbarHeight - 10; // Reduced padding to 10px
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    } else {
+        // Fallback if no title is found
+        const sectionPosition = section.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = sectionPosition - navbarHeight;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Update scroll arrow click handler
+document.getElementById('scrollArrow').addEventListener('click', function() {
+    const currentSection = getCurrentSection();
+    const nextSection = getNextSection(currentSection);
+    if (nextSection) {
+        scrollToSection(nextSection.id);
+    }
+});
+
+// Get current section based on scroll position
+function getCurrentSection() {
+    const sections = document.querySelectorAll('section');
+    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+    
+    for (const section of sections) {
+        const rect = section.getBoundingClientRect();
+        const sectionTitle = section.querySelector('h2');
+        if (sectionTitle) {
+            const titleRect = sectionTitle.getBoundingClientRect();
+            if (titleRect.top <= navbarHeight && titleRect.bottom >= navbarHeight) {
+                return section;
+            }
+        } else {
+            if (rect.top <= navbarHeight && rect.bottom >= navbarHeight) {
+                return section;
+            }
+        }
+    }
+    return null;
+}
+
+// Get next section based on current section
+function getNextSection(currentSection) {
+    const sections = Array.from(document.querySelectorAll('section'));
+    const currentIndex = sections.indexOf(currentSection);
+    return currentIndex < sections.length - 1 ? sections[currentIndex + 1] : null;
+}
+
+// Update scroll arrow visibility
+window.addEventListener('scroll', function() {
+    const scrollArrow = document.getElementById('scrollArrow');
+    const currentSection = getCurrentSection();
+    const nextSection = getNextSection(currentSection);
+    
+    if (nextSection) {
+        scrollArrow.classList.add('visible');
+    } else {
+        scrollArrow.classList.remove('visible');
+    }
+}); 
