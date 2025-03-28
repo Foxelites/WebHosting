@@ -32,7 +32,7 @@ document.querySelector('.hero button').addEventListener('click', function(e) {
     
     if (plansTitle) {
         const plansPosition = plansTitle.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = plansPosition - navbarHeight - 10; // Reduced padding to 10px
+        const offsetPosition = plansPosition - navbarHeight + 20; // Reduced from 50px to 20px
 
         window.scrollTo({
             top: offsetPosition,
